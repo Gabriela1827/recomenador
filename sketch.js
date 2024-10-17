@@ -8,60 +8,116 @@
 //pretendente surpresa-14-comedia romantica
 //pousando no amor-14-drama,romance,ação
 //sorriso real-12-comedia romantica
+
 function setup() {
   createCanvas(400, 400);
 }
 
-
-function draw() {
+function draw(pink) {
   background(220);
-}
-function draw() {
-    background(220);
-    let recomendacao = "vingadores";
-    text(recomendacao, width/2, height/2);
-}
-let campoIdade;
+}let campoIdade;
 
 function setup() {
   createCanvas(400, 400);
-  campoIdade = createInput("13");
+  campoIdade = createInput("15");
 }
 
 function draw() {
   background(220);
-  let idade = 13; // exemplo de idade
+  let idade = 15; // exemplo de idade
   let recomendacao = geraRecomendacao(idade);
   text(recomendacao, width / 2, height / 2);
 }
 
 function geraRecomendacao(idade) {
-  if (idade >= 12) {
+  if (idade >= 10) {
     if (idade >= 14) {
-      return "guardiões da galaxia";
+      return "alquimia das almas";
     } else {
-      return "Alquimia das almas";
+      return "caçadores de demonios";
     }
   } else {
     return "pretendente surpresa";
   }
-}
-function geraRecomendacao(idade, gostaDeFantasia) {
+}function geraRecomendacao(idade, gostaDeFantasia) {
     if(idade >= 10) {
         if(idade >= 14) {
-            return "O menino que descobriu o vento";
+            return "alquimia das almas";
         } else {
             if(gostaDeFantasia){
-                return "As aventuras de Pi";
+                return "caçadores de demonios";
             } else {
-                return "Depois da chuva";
+                return "pretendente surpresa";
             }
         }
     } else {
         if(gostaDeFantasia) {
-            return "A viagem de Chihiro";
+            return "pretendente surpresa";
         } else {
-            return "O feitiço do tempo";
+            return "sorriso real";
         }
     }
+}function setup() {
+    createCanvas(800, 400);
+    createSpan("Sua idade:");
+    campoIdade = createInput("5");
+    campoFantasia = createCheckbox(" Gosta de fantasia?");
+}
+
+function draw() {
+    background("white");
+    let idade = campoIdade.value();
+    let gostaDeFantasia = campoFantasia.checked();
+    let recomendacao = geraRecomendacao(idade, gostaDeFantasia);
+
+    fill(color(76, 0, 115));
+    textAlign(CENTER, CENTER);
+    textSize(38);
+    text(recomendacao, width / 2, height / 2);
+}
+
+function geraRecomendacao(idade, gostaDeFantasia) {
+    if (idade >= 10) {
+        if (idade >= 14) {
+            return "alquimia das almas";
+        } else {
+            if (gostaDeFantasia) {
+                return "caçadores e demonios";
+            } else {
+                return "pousando no amor";
+            }
+        }
+    } else {
+        if (gostaDeFantasia) {
+            return "pousando no amor";
+        } else {
+            return "sorriso real";
+        }
+    }
+}function geraRecomendacao(idade, gostaDeFantasia, gostaDeAventura) {
+  if (idade >= 10) {
+    if (idade >= 18) {
+      return "bailarina";
+    } else {
+      if (idade >= 12) {
+        if(gostaDeFantasia || gostaDeAventura) {
+          return "alquimia das almas";          
+        } else{
+         return "ate que as cores acabem";
+        }
+      } else {
+        if (gostaDeFantasia) {
+          return "caçadores de demonios";
+        } else {
+          return "pousando no amor";
+        }
+      }
+    }
+  } else {
+    if (gostaDeFantasia) {
+      return "pousando no amor";
+    } else {
+      return "sorriso real";
+    }
+  }
 }
