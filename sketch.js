@@ -43,9 +43,9 @@ function geraRecomendacao(idade, gostaDeFantasia, gostaDeAventura) {
         }
       } else {
         if (gostaDeFantasia) {
-          return "As aventuras de pi";
+          return "ate que a cores acabem";
         } else {
-          return "Depois da chuva";
+          return "pousando no amor";
         }
       }
     }
